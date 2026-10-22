@@ -1,0 +1,520 @@
+/* 1. Aturan dasar halaman */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f5f6f1;
+    color: #293b32;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+h2,
+h3 {
+    color: #245344;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.25;
+}
+
+a {
+    color: #28745c;
+}
+
+a:hover {
+    color: #a6532d;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #e5a43b;
+    outline-offset: 3px;
+}
+
+body > hr {
+    width: min(1000px, calc(100% - 40px));
+    margin: 24px auto;
+    border: 0;
+    border-top: 1px solid #d9dfd6;
+}
+
+/* 2. Header dan menu navigasi */
+.header {
+    min-height: 350px;
+    padding: 48px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background-color: #174b40;
+    background-image: linear-gradient(rgba(15, 40, 34, 0.55), rgba(15, 40, 34, 0.55)), url("image/pasar.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+    color: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 48px;
+    line-height: 1.15;
+}
+
+.header p {
+    max-width: 600px;
+    margin: 0;
+}
+
+.header hr {
+    width: 64px;
+    margin: 4px 0;
+    border: 0;
+    border-top: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.navbar {
+    max-width: 720px;
+    text-align: center;
+}
+
+.navbar a {
+    display: inline-block;
+    margin: 3px 2px;
+    padding: 7px 12px;
+    border-radius: 6px;
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.navbar a:hover {
+    background-color: #ffffff;
+    color: #245344;
+}
+
+/* 3. Bagian pengenalan */
+#beranda {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 24px;
+    text-align: center;
+}
+
+#beranda h2 {
+    margin: 0 0 16px;
+    font-size: 32px;
+}
+
+#beranda p {
+    max-width: 780px;
+    margin: 12px auto;
+}
+
+/* 4. Daftar makanan */
+.food-section {
+    max-width: 1120px;
+    margin: 24px auto;
+    padding: 40px;
+    border: 1px solid #e4e8df;
+    border-radius: 12px;
+    background-color: #ffffff;
+}
+
+.food-heading {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 24px;
+}
+
+.food-eyebrow {
+    margin: 0 0 8px;
+    color: #a6532d;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.food-heading h2,
+.food-modal h2 {
+    margin: 0;
+    color: #293b32;
+    font-size: 34px;
+}
+
+.food-intro {
+    max-width: 360px;
+    margin: 0;
+    color: #66736a;
+}
+
+.food-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.food-card {
+    min-height: 78px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid #dfe6dc;
+    border-radius: 8px;
+    background-color: #fbfcf8;
+    color: #293b32;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.food-card:hover {
+    transform: translateY(-2px);
+    border-color: #8bab91;
+    background-color: #f1f7ef;
+}
+
+.food-number {
+    color: #a6532d;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.food-info {
+    display: grid;
+    gap: 3px;
+}
+
+.food-info small {
+    color: #66736a;
+    font-size: 13px;
+}
+
+.food-arrow {
+    margin-left: auto;
+    color: #28745c;
+    font-size: 18px;
+}
+
+/* 5. Pop-up detail makanan */
+.food-modal {
+    width: calc(100% - 32px);
+    max-width: 640px;
+    max-height: calc(100% - 32px);
+    margin: auto;
+    padding: 40px;
+    border: 0;
+    border-radius: 12px;
+    background-color: #ffffff;
+    color: #4e5d53;
+}
+
+.food-modal::backdrop {
+    background-color: rgba(20, 35, 29, 0.65);
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #dfe6dc;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #293b32;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-origin {
+    color: #28745c;
+    font-weight: bold;
+}
+
+.modal-description {
+    line-height: 1.7;
+}
+
+/* 6. Slider foto */
+.slider-container {
+    position: relative;
+    width: min(900px, calc(100% - 32px));
+    margin: 20px auto 48px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #e9eee7;
+}
+
+.slider {
+    display: flex;
+    aspect-ratio: 16 / 9;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slide {
+    position: relative;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    background-color: #e9eee7;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.slide-caption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 10px 14px;
+    background-color: rgba(20, 35, 29, 0.72);
+    color: #ffffff;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 42px;
+    height: 42px;
+    transform: translateY(-50%);
+    border: 0;
+    border-radius: 50%;
+    background-color: rgba(20, 35, 29, 0.75);
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.slider-btn:hover {
+    background-color: #a6532d;
+}
+
+.prev-btn {
+    left: 12px;
+}
+
+.next-btn {
+    right: 12px;
+}
+
+/* 7. Tabel resep */
+table {
+    width: min(1000px, calc(100% - 32px));
+    margin: 20px auto 48px;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+th,
+td {
+    padding: 10px 12px;
+    border: 1px solid #d9dfd6;
+    text-align: left;
+}
+
+th {
+    background-color: #245344;
+    color: #ffffff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f1f5ef;
+}
+
+/* 8. Lokasi penjual */
+#lokasi {
+    max-width: 1120px;
+    margin: 24px auto;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    border: 1px solid #e4e8df;
+    border-radius: 12px;
+    background-color: #ffffff;
+}
+
+#lokasi h3,
+#lokasi p {
+    grid-column: 1 / -1;
+}
+
+#lokasi h3 {
+    margin: 0;
+    color: #293b32;
+    font-size: 34px;
+}
+
+#lokasi p {
+    margin: 0 0 12px;
+    color: #66736a;
+}
+
+#lokasi a {
+    display: block;
+    padding: 14px 16px;
+    border: 1px solid #dfe6dc;
+    border-radius: 8px;
+    background-color: #fbfcf8;
+    color: #28745c;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+#lokasi a:hover {
+    transform: translateY(-2px);
+    border-color: #8bab91;
+    background-color: #f1f7ef;
+    color: #245344;
+}
+
+#lokasi li {
+    list-style: none;
+}
+
+/* 9. Form rekomendasi */
+#kontak {
+    max-width: 760px;
+    margin: 0 auto 48px;
+    padding: 0 24px;
+}
+
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5ca;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #293b32;
+    font: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="radio"] {
+    accent-color: #28745c;
+}
+
+form button[type="submit"] {
+    padding: 10px 18px;
+    border: 0;
+    border-radius: 6px;
+    background-color: #28745c;
+    color: #ffffff;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+form button[type="submit"]:hover {
+    background-color: #a6532d;
+}
+
+/* 10. Tentang dan footer */
+#tentang {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 24px;
+}
+
+footer {
+    padding: 12px 24px;
+    color: #66736a;
+    text-align: center;
+}
+
+footer hr {
+    border: 0;
+    border-top: 1px solid #d9dfd6;
+}
+
+/* 11. Tampilan layar kecil */
+@media (max-width: 700px) {
+    .header {
+        min-height: 320px;
+        padding: 36px 18px;
+    }
+
+    .header h1 {
+        font-size: 36px;
+    }
+
+    #beranda {
+        padding: 36px 20px;
+    }
+
+    #beranda h2,
+    .food-heading h2,
+    .food-modal h2 {
+        font-size: 28px;
+    }
+
+    .food-section {
+        margin: 16px;
+        padding: 24px 18px;
+    }
+
+    #lokasi {
+        margin: 16px;
+        padding: 24px 18px;
+        grid-template-columns: 1fr;
+    }
+
+    #lokasi h3 {
+        font-size: 28px;
+    }
+
+    .food-heading {
+        align-items: start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .food-list {
+        grid-template-columns: 1fr;
+    }
+
+    .food-modal {
+        padding: 36px 24px 28px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
